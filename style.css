@@ -225,15 +225,17 @@ body {
   transition: opacity 0.6s ease, transform 0.6s ease;
   text-align: center;
   padding: 30px 20px;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   background: linear-gradient(145deg, #fff0f3, #fdecef, #ffe5ec);
   overflow-y: auto;
+  height:100vh;
 }
 
 .fourth-page.active {
   display: block;
   opacity: 1;
   transform: scale(1);
+  
 }
 
 .fourth-page h2 {

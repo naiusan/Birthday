@@ -21,25 +21,26 @@ function checkPassword() {
   }
 }
 
+
+
+
 function cardClicked(cardName) {
   const secondPage = document.getElementById('secondPage');
   const thirdPage = document.getElementById('thirdPage');
+  const fourthPage = document.getElementById('fourthPage');
   const messageElement = document.getElementById('typedMessage');
 
+  // 📨 MESSAGE CARD
   if (cardName === 'Message') {
-    // Reset message content each time
     messageElement.textContent = '';
 
-    // Smooth transition to message page
     secondPage.style.opacity = '0';
     secondPage.style.transform = 'scale(0.9)';
 
     setTimeout(() => {
       secondPage.style.display = 'none';
       thirdPage.style.display = 'block';
-
-      // Force a reflow to fix mobile rendering glitch
-      void thirdPage.offsetWidth;
+      void thirdPage.offsetWidth; // Fix rendering bug
 
       thirdPage.classList.add('active');
       thirdPage.style.opacity = '1';
@@ -48,27 +49,76 @@ function cardClicked(cardName) {
       typeMessage();
     }, 600);
   }
-  
-  else if (cardName === 'Picture') {
-  secondPage.style.opacity = '0';
-  secondPage.style.transform = 'scale(0.9)';
-  setTimeout(() => {
-    secondPage.style.display = 'none';
-    document.getElementById('fourthPage').classList.add('active');
-  }, 600);
-}
 
+  // 🖼️ PICTURE CARD
+  else if (cardName === 'Picture') {
+    secondPage.style.opacity = '0';
+    secondPage.style.transform = 'scale(0.9)';
+
+    setTimeout(() => {
+      secondPage.style.display = 'none';
+      fourthPage.style.display = 'block'; // ✅ Ensure visible before adding .active
+      void fourthPage.offsetWidth; // ✅ Force reflow
+
+      fourthPage.classList.add('active');
+      fourthPage.style.opacity = '1';
+      fourthPage.style.transform = 'scale(1)';
+    }, 600);
+  }
 
   else {
-    alert("You clicked " + cardName + " 🎁");
+    alert("I'm still working on it🥹, wait ka lang gagawa ako video greetings ko😁😁");
   }
 }
+
+function goBack() {
+  const secondPage = document.getElementById('secondPage');
+  const thirdPage = document.getElementById('thirdPage');
+  const fourthPage = document.getElementById('fourthPage');
+  const messageElement = document.getElementById('typedMessage');
+
+  // 📨 Going back from Message
+  if (thirdPage.classList.contains('active')) {
+    thirdPage.style.opacity = '0';
+    thirdPage.style.transform = 'scale(0.95)';
+
+    setTimeout(() => {
+      thirdPage.classList.remove('active');
+      thirdPage.style.display = 'none';
+      messageElement.textContent = '';
+
+      secondPage.style.display = 'block';
+      void secondPage.offsetWidth;
+      secondPage.classList.add('active');
+      secondPage.style.opacity = '1';
+      secondPage.style.transform = 'scale(1)';
+    }, 600);
+  }
+
+  // 🖼️ Going back from Picture
+  else if (fourthPage.classList.contains('active')) {
+    fourthPage.style.opacity = '0';
+    fourthPage.style.transform = 'scale(0.95)';
+
+    setTimeout(() => {
+      fourthPage.classList.remove('active');
+      fourthPage.style.display = 'none'; // ✅ fully hide
+
+      secondPage.style.display = 'block';
+      void secondPage.offsetWidth;
+      secondPage.classList.add('active');
+      secondPage.style.opacity = '1';
+      secondPage.style.transform = 'scale(1)';
+    }, 600);
+  }
+}
+
 
 function typeMessage() {
   const messageElement = document.getElementById('typedMessage');
   messageElement.textContent = ''; // reset before typing
 
-  const text = `Hi naaaak! Happy birthday sa maganda kong anak, sensya na eto lang keri kong gift sayo ngayon, i know marami nakong mga pag kukulang sayo, di na din tayo gaanong nakakapag usap lately well parehas na din naman na tayong na busy sa sari-sarili nating buhay, i just want you to know na andito lang ako palagi kung may problema ka man pwede mo ko lapitan and always remember na I'm so so so so proud of you, i know super duper pagod ka na sa life, just don't forget na we are always here for you keri yan nak gold tayo diba, I believe in you, anyway enough na sa drama Happy happy birthday sayo nak, more blessings to come kita kits soon.`;
+const text = `Hi naaaak! Happy birthday sa maganda kong anak, sensya na eto lang keri kong gift sayo ngayon, i know marami nakong mga pag kukulang sayo, di na din tayo gaanong nakakapag usap lately well parehas na din naman na tayong na busy sa sari-sarili nating buhay, i just want you to know na andito lang ako palagi kung may problema ka man pwede mo ko lapitan and always remember na I'm so so so so proud of you, i know super duper pagod ka na sa life, just don't forget na we are always here for you keri yan nak gold tayo diba, I believe in you, anyway enough na sa drama Happy happy birthday sayo nak, more blessings to come kita kits soon.`;
 
   let index = 0;
   const typingSpeed = 35;
@@ -83,29 +133,3 @@ function typeMessage() {
 
   type();
 }
-
-function goBack() {
-  const secondPage = document.getElementById('secondPage');
-  const thirdPage = document.getElementById('thirdPage');
-  const messageElement = document.getElementById('typedMessage');
-
-  thirdPage.style.opacity = '0';
-  thirdPage.style.transform = 'scale(0.95)';
-
-  setTimeout(() => {
-    thirdPage.classList.remove('active');
-    thirdPage.style.display = 'none';
-
-    // Clear text for next animation
-    messageElement.textContent = '';
-
-    // Go back to second page
-    secondPage.style.display = 'block';
-    void secondPage.offsetWidth; // 🔧 fix mobile issue
-    secondPage.classList.add('active');
-    secondPage.style.opacity = '1';
-    secondPage.style.transform = 'scale(1)';
-  }, 600);
-}
-
-    
