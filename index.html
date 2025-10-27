@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gift for You</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js"></script>
+</head>
+<body>
+  <!-- FIRST PAGE -->
+  <div class="container" id="firstPage">
+    <img src="gift.png" alt="Gift Box" class="gift" />
+    <input 
+      type="password" 
+      id="passwordInput" 
+      placeholder="" 
+      class="password" 
+      onkeydown="if(event.key === 'Enter') checkPassword()" 
+    />
+    <p class="text">ENTER THE PASSWORD<br>I HAVE A GIFT FOR YOU</p>
+    <p id="message" class="message"></p>
+  </div>
+
+  <!-- SECOND PAGE -->
+<div class="second-page" id="secondPage">
+  <h2>🎉 Yay! you unlocked your gift!</h2>
+  
+  <div class="cards">
+    <div class="card" onclick="cardClicked('Message')">
+      <img src="letter.png" alt="Message Icon">
+      <span>Message</span>
+    </div>
+
+    <div class="card" onclick="cardClicked('Picture')">
+      <img src="camera.png" alt="Picture Icon">
+      <span>Picture</span>
+    </div>
+
+    <div class="card" onclick="cardClicked('Video')">
+      <img src="video.png" alt="Video Icon">
+      <span>Video</span>
+    </div>
+  </div>
+</div>
+
+<!-- THIRD PAGE -->
+<div class="third-page" id="thirdPage">
+  <h2>💌 My Message for You</h2>
+  <p id="typedMessage" class="message-text"></p>
+  <button class="back-btn" onclick="goBack()">⬅ Back</button>
+</div>
+
+<!-- FOURTH PAGE -->
+
+<div class="fourth-page" id="fourthPage">
+  <h2>Gold kong anak 💞</h2>
+  <div class="simple-gallery">
+    <img src="photo1.jpeg" alt="Memory 1">
+    <img src="photo1.jpeg" alt="Memory 2">
+    <img src="photo1.jpeg" alt="Memory 3">
+    <img src="photo1.jpeg" alt="Memory 4">
+    <img src="photo1.jpeg" alt="Memory 5">
+    <img src="photo1.jpeg" alt="Memory 6">
+  </div>
+  <button class="back-btn" onclick="goBackToSecond()">⬅ Back</button>
+</div>
+
+  
+</body>
+</html>

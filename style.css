@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(145deg, #fdeef3, #fbe9e7, #ffd9e0);
+  background-size: 300% 300%;
+  animation: bgmove 8s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+
+@keyframes bgmove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------------- FIRST PAGE ---------------- */
+.container {
+  text-align: center;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.gift {
+  width: 200px;
+  max-width: 80%;
+  margin-bottom: 30px;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+/* Floating / Bouncing animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-50px); }
+  100% { transform: translateY(0); }
+}
+
+
+.password {
+  display: block;
+  width: 250px;
+  max-width: 80%;
+  margin: 0 auto 25px;
+  padding: 12px 18px;
+  border: 3px solid #f7a6b3;
+  border-radius: 30px;
+  background: #ffc5cc;
+  outline: none;
+  text-align: center;
+  font-size: 16px;
+  color: #b84e64;
+  transition: transform 0.1s;
+}
+
+.password.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+.text {
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+  color: #d4747a;
+  letter-spacing: 2px;
+}
+
+.message {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+/* ---------------- SECOND PAGE ---------------- */
+.second-page {
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  display: none;
+}
+
+.second-page.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.second-page h2 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 36px;
+  color: #d4747a;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.card {
+  width: 230px;
+  height: 120px;
+  background: linear-gradient(145deg, #ffe6eb, #fff0f2);
+  border: 3px solid #f7a6b3;
+  border-radius: 20px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #d4747a;
+}
+
+.card img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+}
+
+.card span {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+  background: linear-gradient(145deg, #ffdbe2, #fff5f7);
+}
+
+.card:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* ---------------- THIRD PAGE ---------------- */
+.third-page {
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  display: none;
+}
+
+.third-page.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+  height: 100vh;
+}
+
+.third-page {
+  padding: 30px 20px 60px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+
+
+.third-page h2 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 36px;
+  color: #d4747a;
+  margin-bottom: 20px;
+}
+
+.message-text {
+  font-family: 'Poppins', sans-serif;
+  color: #b84e64;
+  background: linear-gradient(145deg, #ffe6eb, #fff0f2);
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #f7a6b3;
+  width: 80%;
+  margin: 0 auto 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.back-btn {
+  background: #ffc5cc;
+  border: 2px solid #f7a6b3;
+  border-radius: 25px;
+  padding: 10px 25px;
+  color: #b84e64;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  background: #ffdbe2;
+}
+
+/* ---------------- FOURTH PAGE (Simple Gallery) ---------------- */
+.fourth-page {
+  display: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  text-align: center;
+  padding: 30px 20px;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #fff0f3, #fdecef, #ffe5ec);
+  overflow-y: auto;
+}
+
+.fourth-page.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fourth-page h2 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 36px;
+  color: #d4747a;
+  margin-bottom: 25px;
+}
+
+/* Simple grid layout */
+.simple-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
+  grid-auto-rows: 150px; /* each image height */
+  gap: 5px;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.simple-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  background-color: #ffc5cc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.simple-gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fourth-page button{
+ margin-top: 10px;
+}
+
+
+
+
+/* ---------------- RESPONSIVE DESIGN ---------------- */
+@media (min-width: 768px) {
+  body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .second-page h2,
+  .third-page h2 {
+    font-size: 88px;
+  }
+  
+  .card span {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+  /* Make cards horizontal on desktop */
+  .cards {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .card {
+    width: 500px;
+    height: 320px;
+  }
+
+  .card img {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Message box wider on desktop */
+  .message-text {
+    width: 60%;
+    font-size: 36px;
+    line-height: 1.6;
+  }
+
+  /* Bigger back button */
+  .back-btn {
+    padding: 24px 70px;
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* For large monitors */
+  .card {
+    width: 280px;
+    height: 180px;
+  }
+
+  .message-text {
+    width: 50%;
+  }
+}
